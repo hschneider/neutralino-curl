@@ -1,0 +1,5 @@
+/.tmp/
+/dist/
+/.idea/
+/bin/
+resources/js/.syncthing.main.js.tmp
