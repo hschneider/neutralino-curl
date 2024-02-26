@@ -15,6 +15,16 @@ This cross-platform CURL wrapper comes with the following features:
 
 ![](https://marketmix.com/git-assets/neutralino-curl/neutralino-curl-demo.gif)
 
+## Run the demo
+Clone this repo, and cd to the project folder. 
+Copy the content from `_install/YOUR_PLATFORM/bin/`to `resources/bin/`.
+
+Then enter
+```js
+neu update --latest
+neu run
+```
+
 ## Include in your own Project
 
 nuetralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
