@@ -5,7 +5,7 @@
 
 # neutralino-curl
 
-**A CURL wrapper for Neutralino**
+**A CURL Wrapper for Neutralino**
 
 This cross-platform CURL wrapper comes with the following features:
 - Fast downloads and uploads via HTTP, HTTPS, FTP, FTPS.
