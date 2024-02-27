@@ -20,7 +20,7 @@ const PBAR = document.getElementById("pbar");
 let CURL = new NeutralinoCurl();
 
 async function testCurl() {
-    await CURL.upload("test.jpg", "https://api.test/custom-api-scaffold/upload");
+    await CURL.download("https://marketmix.com/git-assets/neutralino-curl/test.jpg");
 }
 
 document.addEventListener('curlStart', function(e) {
