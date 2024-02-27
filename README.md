@@ -102,9 +102,9 @@ await CURL.run('-k -l -u username:password pop3://mail.server.com');
 Keep in mind, that special, shell-relevant characters in passwords need to be escaped:
 
 ```js
-# This will fail:
+// This will fail:
 await CURL.run('-k -l -u user@server.com:My$Password! pop3://mail.server.com');
-# This is the way:
+// This is the way:
 await CURL.run('-k -l -u user@server.com:My\\$Password\\! pop3://mail.server.com');
 ```
 
