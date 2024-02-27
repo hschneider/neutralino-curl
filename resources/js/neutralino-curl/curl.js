@@ -121,6 +121,9 @@ class NeutralinoCurl {
         });
     }
     async resetProgress() {
+        //
+        // Reset progress-counter and emit curlProgress event.
+        
         this.progress= 0.0;
         let eProgress = new CustomEvent("curlProgress", {detail: 0.0});
         document.dispatchEvent(eProgress);
