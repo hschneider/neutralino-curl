@@ -30,7 +30,7 @@ neu run
 
 nuetralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
 
-### Setup for all platforms
+### Setup for all Platforms
 
 - Copy the content from `_install/YOUR_PLATFORM/bin/`to `resources/bin/`.
 - Include `resources/neutralino-curl/curl.js`in your `index.hml`file.
