@@ -38,7 +38,7 @@ nuetralino-curl is not a classic WebSocket-bound extension. It only consists of 
 
 ### On Windows
 
-Since **curl.exe** has external depencies, move the `bin` folder out of your `resources` folder and place it on the same folder level like `resources.neu` like this:
+Since **curl.exe** has external depencies, move the `bin` folder out of your `resources` folder and let your installer place it on the same folder level like `resources.neu` like this:
 
 ```
 app.exe
