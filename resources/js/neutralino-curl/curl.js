@@ -12,7 +12,7 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.6';
+        this.version = '1.0.7';
         this.debug = opt.debug || false;
 
         this.appRoot = NL_PATH;                              // App root path
@@ -148,6 +148,10 @@ class NeutralinoCurl {
                     case 'exit':
                         if(this.debug) {
                             console.log(`Curl terminated with exit code: ${e.detail.data}`);
+                        }
+                        if(e.detail.data == 0) {
+                            let eProgress = new CustomEvent("curlProgress", {detail: 100.0});
+                            document.dispatchEvent(eProgress);
                         }
                         let eEnd = new CustomEvent("curlEnd", {detail: parseInt(e.detail.data)});
                         document.dispatchEvent(eEnd);
