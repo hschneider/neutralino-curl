@@ -22,9 +22,11 @@ let CURL = new NeutralinoCurl();
 async function testCurl() {
     await CURL.download("https://marketmix.com/git-assets/neutralino-curl/test.jpg");
 }
+async function clearProgressbar() {
+    CURL.resetProgress();
+}
 
 document.addEventListener('curlStart', function(e) {
-    CURL.resetProgress();
     document.getElementById("btn-test").disabled = true;
     console.log("Curl started ...");
 });
