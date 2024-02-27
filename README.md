@@ -46,6 +46,12 @@ let CURL = new NeutralinoCurl();
 
 ### HTTP, HTTPS:
 
+Set HTTP custom-headers. Use this once, it applies to all further operations:
+
+```js
+CURL.addHttpHeader('X-API-Auth', '1234');
+```
+
 Download:
 
 ```js
@@ -64,16 +70,9 @@ Upload :
 await CURL.upload("file.zip, "https://server.com");
 ```
 
-Use HTTP custom-headers, e.g. for upload:
-
-```js
-CURL.addHttpHeader('X-API-Auth', '1234');
-await CURL.upload("file.zip, "https://server.com");
-```
-
 ### FTP, FTPS:
 
-Set credentials. Use this once, it applies to all following  operations:
+Set credentials. Use this once, it applies to all further operations:
 
 ```js
 CURL.setCredentials('username', 'password')
