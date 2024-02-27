@@ -97,7 +97,7 @@ Upload:
 await CURL.upload("file.zip", "ftp://server.com/path")
 ```
 
-### Any Protocol
+### Any Protocol, any Command
 
 You can use any command-line parameter and protocol, supported by the curl binary by using `CURL.run()`. If curl's output goes to stdout, the `curlData`event with curl's output in `e.detail` is triggered.
 
