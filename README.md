@@ -49,7 +49,8 @@ let CURL = new NeutralinoCurl();
 Set HTTP custom-headers. Use this once, it applies to all further operations:
 
 ```js
-CURL.addHttpHeader('X-API-Auth', '1234');
+CURL.addHttpHeader('X-API-Token', '1234');
+CURL.addHttpHeader('X-API-User', 'jimbo');
 ```
 
 Download:
