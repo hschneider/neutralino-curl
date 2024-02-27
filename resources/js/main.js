@@ -40,4 +40,3 @@ document.addEventListener('curlData', function(e) {
     console.log("Curl data:");
     console.log(e.detail);
 });
-
