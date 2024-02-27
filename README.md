@@ -127,7 +127,7 @@ Read more about [the fantastic possibilites of curl here.](https://everything.cu
 | upload(src, dst)          | Upload a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** File-path<br />**dst:** URL |
 | resetProgress()           | Resets the progress counter and emits a `curlProgress` event with data  `0.0`, which in turn clears a connected progressbar. |
 | run(args)                 | Run the curl-binary with custom arguments. This method is also called from `download()` and `upload()` internally.<br />**args:** Curl command-line parameters |
-| setCredentials(usr, pwd)  | Set auth credentials for e.g. FTP operations.<br />**usr**: Username<br />**pwd**: Password |
+| setCredentials(usr, pwd)  | Set credentials for FTP/FTPS operations.<br />**usr**: Username<br />**pwd**: Password |
 
 ## Events
 
