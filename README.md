@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/neutralino-curl/neutralino-curl-header.jpg">
+<img src="https://marketmix.com/git-assets/neutralino-curl/neutralino-curl-header-2.jpg">
 </p>
 
 
