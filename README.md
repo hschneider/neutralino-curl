@@ -30,11 +30,24 @@ neu run
 
 nuetralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
 
-### Setup
+### Setup for all platforms
 
 - Copy the content from `_install/YOUR_PLATFORM/bin/`to `resources/bin/`.
 - Include `resources/neutralino-curl/curl.js`in your `index.hml`file.
 - Init CURL and add the required events to `main.js`.
+
+### On Windows
+
+Since **curl.exe** has external depencies, move the `bin` folder out of your `resources` folder and place it on the same folder level like `resources.neu` like this:
+
+```
+app.exe
+resources.neu
+bin
+  curl.exe
+  libcurl-x64.dll
+  ...
+```
 
 ## CURL by Example
 

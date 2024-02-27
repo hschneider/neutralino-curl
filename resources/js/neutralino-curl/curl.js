@@ -12,7 +12,7 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.5';
+        this.version = '1.0.6';
         this.debug = opt.debug || false;
 
         this.appRoot = NL_PATH;                              // App root path
@@ -20,6 +20,10 @@ class NeutralinoCurl {
         this.appResourcesBIN = this.appResources + '/bin';   // App BIN resources
         this.progress = 0;  // Current progress
         this.httpHeaders = [];  // List of HTTP headers
+
+        if(NL_OS === 'Windows') {
+            this.appResourcesBIN = NL_PATH + '/bin';
+        }
 
         // Auth credentials
         //
