@@ -12,7 +12,7 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.4';
+        this.version = '1.0.5';
         this.debug = opt.debug || false;
 
         this.appRoot = NL_PATH;                              // App root path
@@ -63,7 +63,7 @@ class NeutralinoCurl {
         let httpHeader = '';
         if(this.httpHeaders.length > 0) {
             this.httpHeaders.map(h => {
-                httpHeader += `-H "${h} "`;
+                httpHeader += `-H "${h}" `;
             });
             console.log(httpHeader);
         }
@@ -102,7 +102,7 @@ class NeutralinoCurl {
         let httpHeader = '';
         if(this.httpHeaders.length > 0) {
             this.httpHeaders.map(h => {
-                httpHeader += `-H "${h} "`;
+                httpHeader += `-H "${h}" `;
             });
             console.log(httpHeader);
         }
