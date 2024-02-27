@@ -9,6 +9,7 @@
 
 This cross-platform CURL wrapper comes with the following features:
 - Fast downloads and uploads via HTTP, HTTPS, FTP, FTPS.
+- Supports custom HTTP-headers, e.g. for API authentication.
 - No more headaches about CORS.
 - Custom parameters support all possible CURL-protocols, like IMAP, POP3, SMTP, SMB, SCP, TELNET, WS, MQTT, LDAP and more.
 - Emits JS events to for progress monitoring.
@@ -63,6 +64,13 @@ Upload :
 await CURL.upload("file.zip, "https://server.com");
 ```
 
+Use HTTP custom-headers, e.g. for upload:
+
+```js
+CURL.addHttpHeader('X-API-Auth', '1234');
+await CURL.upload("file.zip, "https://server.com");
+```
+
 ### FTP, FTPS:
 
 Set credentials. Use this once, it applies to all following  operations:
@@ -112,12 +120,15 @@ Read more about [the fantastic possibilites of curl here.](https://everything.cu
 
 ## Methods
 
-| Method             | Description                                                  |
-| ------------------ | ------------------------------------------------------------ |
-| download(src, dst) | Download a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** URL<br />**dst:** File-path (optional) |
-| upload(src, dst)   | Upload a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** File-path<br />**dst:** URL |
-| resetProgress()    | Resets the progress counter and emits a `curlProgress` event with data  `0.0`, which in turn clears a connected progressbar. |
-| run(args)          | Run the curl-binary with custom arguments. This method is also called from `download()` and `upload()` internally.<br />**args:** Curl command-line parameters |
+| Method                    | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| addHttpHeader(key, value) | Add a custom HTTP-header to the header-list. Headers are sent with each HTTP-upload or -download.<br />**key**: HTTP-Header name<br />**value**: HTTP-Header content |
+| clearHttpHeader()         | Clears the HTTP-header list.                                 |
+| download(src, dst)        | Download a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** URL<br />**dst:** File-path (optional) |
+| upload(src, dst)          | Upload a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** File-path<br />**dst:** URL |
+| resetProgress()           | Resets the progress counter and emits a `curlProgress` event with data  `0.0`, which in turn clears a connected progressbar. |
+| run(args)                 | Run the curl-binary with custom arguments. This method is also called from `download()` and `upload()` internally.<br />**args:** Curl command-line parameters |
+| setCredentials(usr, pwd)  | Set auth credentials for e.g. FTP operations.<br />**usr**: Username<br />**pwd**: Password |
 
 ## Events
 

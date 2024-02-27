@@ -12,13 +12,14 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.3';
+        this.version = '1.0.4';
         this.debug = opt.debug || false;
 
         this.appRoot = NL_PATH;                              // App root path
         this.appResources = this.appRoot + '/resources';     // App resources path
         this.appResourcesBIN = this.appResources + '/bin';   // App BIN resources
         this.progress = 0;  // Current progress
+        this.httpHeaders = [];  // List of HTTP headers
 
         // Auth credentials
         //
@@ -29,10 +30,25 @@ class NeutralinoCurl {
     }
 
     setCredentials(usr, pwd) {
+        //
+        // Set credentials for e.g. FTP
+
         this.auth.usr = usr;
         this.auth.pwd = pwd;
     }
+    addHttpHeader(key, value) {
+        //
+        // Add a custom http-header
 
+        let h = key + ": " + value;
+        this.httpHeaders.push(h);
+    }
+    clearHttpHeader() {
+        //
+        // Clears http-header list.
+
+        this.httpHeaders = [];
+    }
     async download(src, dst="") {
         //
         // Download via http, ftp or ftps
@@ -44,13 +60,21 @@ class NeutralinoCurl {
             ftpSSL = '--ftp-ssl'
         }
 
+        let httpHeader = '';
+        if(this.httpHeaders.length > 0) {
+            this.httpHeaders.map(h => {
+                httpHeader += `-H "${h} "`;
+            });
+            console.log(httpHeader);
+        }
+
         if(src.includes('http://') || src.includes('https://')) {
             if(dst === '') {
-                await this.run(`--progress-bar -L -k -O ${src}`);
+                await this.run(`--progress-bar ${httpHeader} -L -k -O ${src}`);
             }
             else {
                 // Download as
-                await this.run(`--progress-bar -L -k -o ${dst} ${src}`);
+                await this.run(`--progress-bar ${httpHeader} -L -k -o ${dst} ${src}`);
             }
         }
 
@@ -68,15 +92,23 @@ class NeutralinoCurl {
         //
         // Upload via http, ftp or ftps
 
+        let auth = this.auth.usr+":"+this.auth.pwd;
+
         let ftpSSL = '';
         if(src.includes('ftps://')) {
             ftpSSL = '--ftp-ssl'
         }
 
-        let auth = this.auth.usr+":"+this.auth.pwd;
+        let httpHeader = '';
+        if(this.httpHeaders.length > 0) {
+            this.httpHeaders.map(h => {
+                httpHeader += `-H "${h} "`;
+            });
+            console.log(httpHeader);
+        }
 
         if(dst.includes('http://') || dst.includes('https://')) {
-            await this.run(`--progress-bar -k -F file=@${src} ${dst}`);
+            await this.run(`--progress-bar -k ${httpHeader} -F file=@${src} ${dst}`);
         }
         if(dst.includes('ftp://') || dst.includes('ftps://')) {
             await this.run(`--progress-bar -k ${ftpSSL} -u ${auth} -T ${src} ${dst}`);
