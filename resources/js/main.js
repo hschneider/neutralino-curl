@@ -20,7 +20,14 @@ const PBAR = document.getElementById("pbar");
 let CURL = new NeutralinoCurl();
 
 async function testCurl() {
-    await CURL.download("https://marketmix.com/git-assets/neutralino-curl/test.jpg");
+    let f = '';
+    if(NL_OS === 'Darwin' || this.os === 'Linux') {
+        f = '~/Downloads/test.jpg';
+    }
+    else {
+        f = '%USERPROFILE%\\Downloads\\test.jpg';
+    }
+    await CURL.download("https://marketmix.com/git-assets/neutralino-curl/test.jpg", f);
 }
 async function clearProgressbar() {
     CURL.resetProgress();
