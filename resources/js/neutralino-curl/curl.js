@@ -15,10 +15,10 @@ class NeutralinoCurl {
         this.version = '1.0.9';
         this.debug = opt.debug || false;
 
-        this.appResourcesEXT = NL_PATH + '/extensions';   // App BIN resources
         this.progress = 0;  // Current progress
         this.httpHeaders = [];  // List of HTTP headers
 
+        this.appResourcesEXT = NL_PATH + '/extensions';   // App BIN resources
         if(NL_OS === 'Windows' ) {
             this.appResourcesEXT = NL_CWD + '/extensions';
         }
