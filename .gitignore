@@ -2,8 +2,11 @@
 /dist/
 /.idea/
 /bin/
-resources/js/.syncthing.main.js.tmp
+/resources/js/.syncthing.main.js.tmp
 /test.jpg
 /resources/bin/
 /extensions/curl/bin/curl
-/extensions/curl/bin/curl.*
+/extensions/curl/bin/curl.exe
+/extensions/curl/bin/curl-ca-bundle.crt
+/extensions/curl/bin/libcurl-x64.def
+/extensions/curl/bin/libcurl-x64.dll
