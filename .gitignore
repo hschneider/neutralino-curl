@@ -10,3 +10,8 @@
 /extensions/curl/bin/curl-ca-bundle.crt
 /extensions/curl/bin/libcurl-x64.def
 /extensions/curl/bin/libcurl-x64.dll
+/_app_scaffolds/
+/build-linux.sh
+/build-mac.sh
+/build-win.sh
+
