@@ -12,18 +12,12 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.7';
+        this.version = '1.0.8';
         this.debug = opt.debug || false;
 
-        this.appRoot = NL_PATH;                              // App root path
-        this.appResources = this.appRoot + '/resources';     // App resources path
-        this.appResourcesBIN = this.appResources + '/bin';   // App BIN resources
+        this.appResourcesEXT = NL_PATH + '/extensions';   // App BIN resources
         this.progress = 0;  // Current progress
         this.httpHeaders = [];  // List of HTTP headers
-
-        if(NL_OS === 'Windows') {
-            this.appResourcesBIN = NL_PATH + '/bin';
-        }
 
         // Auth credentials
         //
@@ -125,7 +119,7 @@ class NeutralinoCurl {
         let eStart = new Event("curlStart");
         document.dispatchEvent(eStart);
 
-        let cmd = await Neutralino.os.spawnProcess(this.appResourcesBIN + `/curl ${args}`);
+        let cmd = await Neutralino.os.spawnProcess(this.appResourcesEXT + `/curl/bin/curl ${args}`);
 
         Neutralino.events.on('spawnedProcess', (e) => {
             if(cmd.id == e.detail.id) {

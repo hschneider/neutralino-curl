@@ -32,22 +32,25 @@ nuetralino-curl is not a classic WebSocket-bound extension. It only consists of 
 
 ### Setup on all Platforms
 
-- Copy the content from `_install/YOUR_PLATFORM/bin/`to `resources/bin/`.
+- Copy the content from `_install/YOUR_PLATFORM/bin/`to `extensions/curl/bin/`.
 - Include `resources/neutralino-curl/curl.js`in your `index.hml`file.
 - Init CURL and add the required events to `main.js`.
 
-### On Windows
+## Deployment
 
-Since **curl.exe** has external depencies, move the `bin` folder out of your `resources` folder and let your installer place it on the same folder level like `resources.neu` like this:
+### On Windows and Linux
+
+The `extensions` folder needs to be placed beside your `resources..neu` folder:
 
 ```
 app.exe
 resources.neu
-bin
-  curl.exe
-  libcurl-x64.dll
-  ...
+extensions
 ```
+
+### On macOS
+
+The `extensions` folder goes into your app bundle's `Resources` folder. This can be automated with **[Neutralino Build Scripts.](https://github.com/hschneider/neutralino-build-scripts)**
 
 ## CURL by Example
 
