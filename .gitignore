@@ -5,3 +5,5 @@
 resources/js/.syncthing.main.js.tmp
 /test.jpg
 /resources/bin/
+/extensions/curl/bin/curl
+/extensions/curl/bin/curl.*
