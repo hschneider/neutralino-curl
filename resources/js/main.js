@@ -12,6 +12,7 @@ Neutralino.events.on("windowClose", onWindowClose);
 //
 (async () => {
     await Neutralino.window.setTitle(`Neutralino CURL ${NL_APPVERSION}`);
+    await Neutralino.window.show();
 })();
 
 // Curl related
