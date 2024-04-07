@@ -28,12 +28,12 @@ neu run
 
 ## Include in your own Project
 
-neutralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
+neutralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib. 
 
 ### Setup on all Platforms
 
 - Copy the content from `_install/YOUR_PLATFORM/bin/`to `extensions/curl/bin/`.
-- Include `resources/neutralino-curl/curl.js`in your `index.hml`file.
+- Include `extensions/neutralino-curl/curl.js`in your `index.hml`file.
 - Init CURL and add the required events to `main.js`.
 
 ## Deployment
