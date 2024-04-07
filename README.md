@@ -28,7 +28,7 @@ neu run
 
 ## Include in your own Project
 
-nuetralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
+neutralino-curl is not a classic WebSocket-bound extension. It only consists of the CURL binary for your platform and a JS lib, both reside in your resources-folder. 
 
 ### Setup on all Platforms
 
