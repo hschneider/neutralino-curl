@@ -69,7 +69,7 @@ CURL.addHttpHeader('X-API-Token', '1234');
 CURL.addHttpHeader('X-API-User', 'jimbo');
 ```
 
-### GET- and POST-Requests
+### GET- & POST-Requests
 
 GET-Request:
 
@@ -108,7 +108,7 @@ Upload :
 await CURL.upload("file.zip, "https://server.com");
 ```
 
-#### Via FTP, FTPS:
+#### Via FTP or FTPS:
 
 Set credentials. Use this once, it applies to all further operations:
 
