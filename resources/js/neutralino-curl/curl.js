@@ -12,7 +12,7 @@ class NeutralinoCurl {
         //
         // Constructor
 
-        this.version = '1.0.9';
+        this.version = '1.1.0';
         this.debug = opt.debug || false;
 
         this.progress = 0;  // Current progress
@@ -51,6 +51,30 @@ class NeutralinoCurl {
 
         this.httpHeaders = [];
     }
+
+    async get(url) {
+        let httpHeader = '';
+        if(this.httpHeaders.length > 0) {
+            this.httpHeaders.map(h => {
+                httpHeader += `-H "${h}" `;
+            });
+            console.log(httpHeader);
+        }
+        return await this.run(`-k ${httpHeader} ` + url);
+    }
+
+    async post(url, data) {
+        let httpHeader = '';
+        if(this.httpHeaders.length > 0) {
+            this.httpHeaders.map(h => {
+                httpHeader += `-H "${h}" `;
+            });
+            console.log(httpHeader);
+        }
+        let d = JSON.stringify(data);
+        return await this.run(`-k ${httpHeader} --request POST ${url} -d ${d}`);
+    }
+
     async download(src, dst="") {
         //
         // Download via http, ftp or ftps

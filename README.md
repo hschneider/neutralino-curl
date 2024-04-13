@@ -60,7 +60,7 @@ Init CURL:
 let CURL = new NeutralinoCurl();
 ```
 
-### HTTP, HTTPS:
+### Cutom-Headers
 
 Set HTTP custom-headers. Use this once, it applies to all further operations:
 
@@ -68,6 +68,27 @@ Set HTTP custom-headers. Use this once, it applies to all further operations:
 CURL.addHttpHeader('X-API-Token', '1234');
 CURL.addHttpHeader('X-API-User', 'jimbo');
 ```
+
+### GET- and POST-Requests
+
+GET-Request:
+
+```
+let result = await CURL.get("https://domain.com/api-endpoint");
+```
+
+POST-Request:
+```
+let d = {
+  field1: 1,
+  field2: 2
+}
+await CURL.post("https://domain.com/api-endpoint", d);
+```
+
+### Downloads & Uploads
+
+#### Via HTTP or HTTPS
 
 Download:
 
@@ -87,7 +108,7 @@ Upload :
 await CURL.upload("file.zip, "https://server.com");
 ```
 
-### FTP, FTPS:
+#### Via FTP, FTPS:
 
 Set credentials. Use this once, it applies to all further operations:
 
@@ -113,7 +134,7 @@ Upload:
 await CURL.upload("file.zip", "ftp://server.com/path")
 ```
 
-### Any Protocol, any Command
+### Use any Protocol, any Command
 
 You can use any command-line parameter and protocol, supported by the curl binary by using `CURL.run()`. If curl's output goes to stdout, the `curlData`event with curl's output in `e.detail` is triggered.
 
@@ -140,6 +161,8 @@ Read more about [the fantastic possibilites of curl here.](https://everything.cu
 | ------------------------- | ------------------------------------------------------------ |
 | addHttpHeader(key, value) | Add a custom HTTP-header to the header-list. Headers are sent with each HTTP-upload or -download.<br />**key**: HTTP-Header name<br />**value**: HTTP-Header content |
 | clearHttpHeader()         | Clears the HTTP-header list.                                 |
+| get(url)                  | GET-Request. Returns data as string.<br />**url**: API-endpoint |
+| post(url, data)           | POST-Request.<br />**url**: API-endpoint<br />**data**: POSt-data as stringified JSON. |
 | download(src, dst)        | Download a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** URL<br />**dst:** File-path (optional) |
 | upload(src, dst)          | Upload a file via HTTP, HTTPS, FTP or FTPS. <br />**src:** File-path<br />**dst:** URL |
 | resetProgress()           | Resets the progress counter and emits a `curlProgress` event with data  `0.0`, which in turn clears a connected progressbar. |
