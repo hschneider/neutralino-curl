@@ -54,13 +54,13 @@ The `extensions` folder goes into your app bundle's `Resources` folder. This can
 
 ## CURL by Example
 
-Init CURL:
+### Init CURL
 
 ```js
 let CURL = new NeutralinoCurl();
 ```
 
-### Cutom-Headers
+### Add Cutom-Headers
 
 Set HTTP custom-headers. Use this once, it applies to all further operations:
 
