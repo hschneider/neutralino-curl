@@ -12,7 +12,7 @@ This cross-platform CURL wrapper comes with the following features:
 - Supports custom HTTP-headers, e.g. for API authentication.
 - No more headaches about CORS.
 - Custom parameters support all possible CURL-protocols, like IMAP, POP3, SMTP, SMB, SCP, TELNET, WS, MQTT, LDAP and more.
-- Emits JS events to for progress monitoring.
+- Emits JS events for progress monitoring.
 
 ![](https://marketmix.com/git-assets/neutralino-curl/neutralino-curl-demo.gif)
 
